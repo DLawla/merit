@@ -4,11 +4,12 @@ module Merit
   # 'controller_path#action_name'
   module ControllerExtensions
     def self.included(base)
-      if base.respond_to? :after_action
-        base.after_action :log_and_process
-      else
-        base.after_filter :log_and_process
-      end
+      base.after_action :log_and_process
+      # if base.respond_to? :after_action
+      #   base.after_action :log_and_process
+      # else
+      #   base.after_filter :log_and_process
+      # end
     end
 
     private
